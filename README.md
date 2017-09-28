@@ -1,4 +1,5 @@
 # JuMP4DEA
+<<<<<<< HEAD
 
 [![Build Status](https://travis-ci.org/henry8527/JuMP4DEA.svg?branch=master)](https://travis-ci.org/henry8527/JuMP4DEA)
 
@@ -10,3 +11,6 @@
 
 
 ## Quick Example
+=======
+JuMP4DEA is a package for solving large-scale data envelopment analysis (DEA) problems
+>>>>>>> origin/master
