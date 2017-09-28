@@ -1,4 +1,4 @@
-# JuMP4DEA
+# JuMP4DEA.jl
 
 [![Build Status](https://travis-ci.org/henry8527/JuMP4DEA.svg?branch=master)](https://travis-ci.org/henry8527/JuMP4DEA)
 
