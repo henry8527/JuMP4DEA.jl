@@ -81,9 +81,9 @@ call our JuMP4DEA function solveDEA
 	stat,iterations,duals,slack = JuMP4DEA.solveDEA(model, lpUB = Inf)
 
 >
-**extremeValueSetFlag** : first sampling take extremeValueSet or not 
+**extremeValueSetFlag** : first sampling take extremeValueSet or not ( 0 = turn off, 1 = turn off )
 <br>
-(0 = turn off, 1 = turn off)
+
 
 	stat,iterations,duals,slack = JuMP4DEA.solveDEA(model, extremeValueSetFlag = 0
 
