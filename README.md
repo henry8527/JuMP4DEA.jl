@@ -20,7 +20,7 @@ All variables and constraints are associated with a Model object. Usually, youâ€
 In our example code , default using `solver = GurobiSolver()`
 <br><br>
 
-###Defining Variables
+### Defining Variables
 
 Variables are also Julia objects, and are defined using the `@variable` macro. The first argument will always be the Model to associate this variable with. In the examples below we assume m is already defined. The second argument is an expression that declares the variable name and optionally allows specification of lower and upper bounds.
 
@@ -36,7 +36,7 @@ In our example code , we define varibles `CLambda` and `Ctheta` for solving DEA 
 	@variable(crs,cTheta) 
 	
 <br><br>
-###Objective and Constraints
+### Objective and Constraints
 
 JuMP allows users to use a natural notation to describe linear expressions. To add constraints, use the `@constraint()` and `@objective()` macros
 
