@@ -85,6 +85,6 @@ call our JuMP4DEA function solveDEA
 <br>
 
 
-	stat,iterations,duals,slack = JuMP4DEA.solveDEA(model, extremeValueSetFlag = 0
+	stat,iterations,duals,slack = JuMP4DEA.solveDEA(model, extremeValueSetFlag = 0)
 
 <br>
