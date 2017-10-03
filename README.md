@@ -88,3 +88,17 @@ call our JuMP4DEA function solveDEA
 	stat,iterations,duals,slack = JuMP4DEA.solveDEA(model, extremeValueSetFlag = 0)
 
 <br>
+
+### Getting Answer from solveDEA
+<br>
+
+    # Get DEA problem answer
+    #--------------------------
+    #println("stat = $stat")
+    #println("iterations = $iterations")
+    #println("the real data to test: $benchmark")
+    #println("lambdas: $(getvalue(cLambda)))")
+    #println("Objective value: $(getobjectivevalue(crs))")
+    #println("Duals value: $duals")
+    #println("Slack value: $slack")
+    #--------------------------
