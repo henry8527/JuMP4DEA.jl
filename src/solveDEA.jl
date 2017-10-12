@@ -23,6 +23,8 @@ function solveDEA(m::JuMP.Model ; incrementSize = 100 , Tol = 10.0^-6 , lpUB = I
   dimension, scale = size(denseFullsizeConstMatrix)
   lpSize = 0
   additiveSize = 0
+  precision = round(Int,round(log(10, 1/Tol) ,1) )
+
   # user parameters simple exception catch
   lpUB = (lpUB > scale) ? scale : lpUB
   incrementSize = (incrementSize > lpUB) ? lpUB : incrementSize
@@ -222,18 +224,18 @@ function solveDEA(m::JuMP.Model ; incrementSize = 100 , Tol = 10.0^-6 , lpUB = I
   # Extracting solution
   if stat == :Optimal
     # recording objective value
-    m.objVal = MathProgBase.getobjval(lm)
+    m.objVal = round(MathProgBase.getobjval(lm), precision)
 
     # recording clambda (DEA solution)
     m.colVal = fill(0.0, fullsizeNumVar)
     solution = MathProgBase.getsolution(lm)
     for i in 1 : length(solution)
-      m.colVal[fulldatamatrix_dict[smallLP[:,i] ] ] = solution[i]
+      m.colVal[fulldatamatrix_dict[smallLP[:,i] ] ] = round(solution[i], precision)
     end
 
     # recording dual value
     m.linconstrDuals = try
-        MathProgBase.getconstrduals(lm)[1:fullsizeNumConst]
+        round(MathProgBase.getconstrduals(lm)[1:fullsizeNumConst], precision)
     catch
         fill(NaN, fullsizeNumConst)
     end
@@ -246,9 +248,9 @@ function solveDEA(m::JuMP.Model ; incrementSize = 100 , Tol = 10.0^-6 , lpUB = I
         slack[k] += m.colVal[find(m.colVal.!=0)[i]] * denseFullsizeConstMatrix[k,find(m.colVal.!=0)[i]]
       end
       if smallConstLB[k] == -Inf
-        slack[k] = abs(smallConstUB[k] - slack[k])
+        slack[k] = round(abs(smallConstUB[k] - slack[k]), precision)
       else
-        slack[k] = abs(slack[k] - smallConstLB[k])
+        slack[k] = round(abs(slack[k] - smallConstLB[k]), precision)
       end
     end
   end
