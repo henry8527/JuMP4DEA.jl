@@ -254,5 +254,5 @@ function solveDEA(m::JuMP.Model ; incrementSize = 100 , Tol = 10.0^-6 , lpUB = I
       end
     end
   end
-  return stat,iterations,duals,slack
+  return duals,slack
 end

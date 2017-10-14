@@ -53,9 +53,10 @@ In our example code , We define `Min` objective , and add constraints for produc
     
 <br><br>
 ### Solve problem
-call our JuMP4DEA function solveDEA
+call our JuMP4DEA function
+<b> solveDEA </b>
 	
-	stat,iterations,duals,slack = JuMP4DEA.solveDEA(model)
+	JuMP4DEA.solveDEA(model)
 	
 	
 <br><br>
@@ -66,39 +67,57 @@ call our JuMP4DEA function solveDEA
 **incrementSize** : smallLP increment size when its size under lpUP for resampling
 <br>
 
-	stat,iterations,duals,slack = JuMP4DEA.solveDEA(model, incrementSize = 100)
+	JuMP4DEA.solveDEA(model, incrementSize = 100)
 
 >
 **Tol** : the accuracy for solving DEA problem
 <br>
 
-	stat,iterations,duals,slack = JuMP4DEA.solveDEA(model, Tol = 10^-6)
+	JuMP4DEA.solveDEA(model, Tol = 10^-6)
 
 >
 **lpUB** : the limit size of LP
 <br>
 
-	stat,iterations,duals,slack = JuMP4DEA.solveDEA(model, lpUB = Inf)
+	JuMP4DEA.solveDEA(model, lpUB = Inf)
 
 >
 **extremeValueSetFlag** : first sampling take extremeValueSet or not ( 0 = turn off, 1 = turn on )
 <br>
 
 
-	stat,iterations,duals,slack = JuMP4DEA.solveDEA(model, extremeValueSetFlag = 0)
+	JuMP4DEA.solveDEA(model, extremeValueSetFlag = 0)
 
 <br>
 
 ### Getting Answer from solveDEA
 <br>
 
-    # Get DEA problem answer
+    # Get DEA problem answer 
     #--------------------------
-    #println("stat = $stat")
-    #println("iterations = $iterations")
+    #println("the real data to test: $benchmark")
+    #println("lambdas: $(getvalue(cLambda)))")
+    #println("Objective value: $(getobjectivevalue(crs))")
+    #--------------------------
+    
+
+<br>
+
+### Extra Require For Getting " Duals " and " Slack " in solveDEA
+
+You also can call solveDEA with return value for solving Duals value and Slack Value
+
+	
+	duals, slack = JuMP4DEA.solveDEA(model)
+	
+and then can get more answer what you want 
+	
+    # Get DEA problem answer (extra version)
+    #--------------------------
     #println("the real data to test: $benchmark")
     #println("lambdas: $(getvalue(cLambda)))")
     #println("Objective value: $(getobjectivevalue(crs))")
     #println("Duals value: $duals")
     #println("Slack value: $slack")
-    #--------------------------
+    #--------------------------	
+	

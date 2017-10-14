@@ -25,13 +25,22 @@ for t = 1 : scale
     # Tol = 10.0^-6
     # lpUB = Inf
     # extremeValueSetFlag = 0 (default turn off extreme value set)
-    stat,iterations,duals,slack = JuMP4DEA.solveDEA(crs)
 
-    # Get DEA problem answer
+    JuMP4DEA.solveDEA(crs)
+
+    ### extra answer option for duals and slack
+    #duals,slack = JuMP4DEA.solveDEA(crs)
+
+    # Get DEA problem answer (default)
     #--------------------------
-    #println("stat = $stat")
-    #println("iterations = $iterations")
+    #println("the real data to test: $benchmark")
+    #println("lambdas: $(getvalue(cLambda)))")
+    #println("Objective value: $(getobjectivevalue(crs))")
+    #--------------------------
 
+    ### extra answer option for duals and slack
+    # Get DEA problem answer (extra version)
+    #--------------------------
     #println("the real data to test: $benchmark")
     #println("lambdas: $(getvalue(cLambda)))")
     #println("Objective value: $(getobjectivevalue(crs))")
