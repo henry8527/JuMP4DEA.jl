@@ -124,7 +124,7 @@ and then can get more answer what you want
 <br>
 
 ## Citing JuMP4DEA
-If you find JuMP useful in your work, we kindly request that you cite the following paper
+If you find JuMP4DEA useful in your work, we kindly request that you cite the following paper
 
 	@article{ChenLai2017,
 	author = {Wen-Chih Chen and Sheng-Yung Lai},
