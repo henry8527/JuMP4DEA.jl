@@ -10,6 +10,57 @@
 `julia> Pkg.clone("git://github.com/henry8527/JuMP4DEA.jl.git")`
 <br><br>
 
+## Efficiency
+
+We are going to Demo the Timing compared with
+**JuMP4DEA.solve()** and  **JuMP.solve()** at the belowing form.
+<br><br>
+
+Solver : GurobiSolver
+<br>
+CPU : Intel Core i7 - 4790
+<br>
+RAM : 16GB
+<br>
+OS SYSTEM : Windows 8 64bits
+<br><br>
+
+### Data Scale  = 25K 
+**Note : JuMP4DEA (sec)  /  JuMP (sec)**
+
+|Dimension  \  Density| 1% | 10% | 25% |
+|:------:|:-----:|:-----:|:------:|
+|2 - 3| 579.16 / 1669.34 | 581.42 / 1685.77 | 560.71 / 1671.79 |
+|5 - 5|
+|7 - 8|
+|10 - 10|
+
+<br>
+
+### Data Scale  = 50K 
+**Note : JuMP4DEA (sec)  /  JuMP (sec)**
+
+|Dimension  \  Density| 1% | 10% | 25% |
+|:------:|:-----:|:-----:|:------:|
+|2 - 3| 2755.49 / 7487.93 | 2560.43 / 7434.29 | 2577.92 / 7550.34 |
+|5 - 5|
+|7 - 8|
+|10 - 10|
+
+<br>
+
+### Data Scale  = 75K 
+**Note : JuMP4DEA (sec)  /  JuMP (sec)**
+
+|Dimension  \  Density| 1% | 10% | 25% |
+|:------:|:-----:|:-----:|:------:|
+|2 - 3| 6050.52 / 18384.48 |  |  |
+|5 - 5|
+|7 - 8|
+|10 - 10|
+
+<br>
+
 ## Quick Start Guide
 ### Creating Model
 Models are Julia objects. They are created by calling the constructor: <br><br>
